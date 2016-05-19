@@ -219,6 +219,8 @@ oppia.controller('StateInteraction', [
                 // populated.
                 for (var i = 0; i < $scope.customizationArgSpecs.length; i++) {
                   var argName = $scope.customizationArgSpecs[i].name;
+                  console.log(stateCustomizationArgsService
+                    .savedMemento[argName].value);
                   stateCustomizationArgsService.displayed[argName] = {
                     value: (
                       stateCustomizationArgsService.savedMemento.hasOwnProperty(
@@ -230,6 +232,7 @@ oppia.controller('StateInteraction', [
                         $scope.customizationArgSpecs[i].default_value)
                     )
                   };
+                  console.log(stateCustomizationArgsService.displayed[argName]);
                 }
 
                 $scope.$broadcast('schemaBasedFormsShown');
